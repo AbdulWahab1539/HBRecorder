@@ -468,19 +468,24 @@ public class MainActivity extends AppCompatActivity implements HBRecorderListene
         if (video_resolution != null) {
             switch (video_resolution) {
                 case "0":
-                    hbRecorder.setScreenDimensions(426, 240);
+//                    hbRecorder.setScreenDimensions(426, 240);
+                    hbRecorder.setResolution(426);
                     break;
                 case "1":
-                    hbRecorder.setScreenDimensions(640, 360);
+//                    hbRecorder.setScreenDimensions(640, 360);
+                    hbRecorder.setResolution(640);
                     break;
                 case "2":
-                    hbRecorder.setScreenDimensions(854, 480);
+//                    hbRecorder.setScreenDimensions(854, 480);
+                    hbRecorder.setResolution(854);
                     break;
                 case "3":
-                    hbRecorder.setScreenDimensions(1280, 720);
+//                    hbRecorder.setScreenDimensions(1280, 720);
+                    hbRecorder.setResolution(1280);
                     break;
                 case "4":
-                    hbRecorder.setScreenDimensions(1920, 1080);
+                    hbRecorder.setResolution(1920);
+//                    hbRecorder.setScreenDimensions(1920, 1080);
                     break;
             }
         }
