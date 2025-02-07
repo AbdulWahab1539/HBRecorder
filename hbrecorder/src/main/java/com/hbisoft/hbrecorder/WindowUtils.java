@@ -14,7 +14,7 @@ public class WindowUtils {
      * Returns the Recording video width and height which makes up resolution.
      *
      * @param targetHeight takes target height and calculates the width according to the target
-     *                     height, while maintain device aspect ratio.
+     *                     height, while maintaining device aspect ratio.
      **/
     public static Pair<Integer, Integer> getCustomDimensions(int targetHeight, Context context) {
 
@@ -29,7 +29,7 @@ public class WindowUtils {
         // Calculate the corresponding width for the target height
         int targetWidth = (int) (targetHeight * aspectRatio);
 
-        // Ensure the width is divisible by 16
+        // Ensure the width is divisible by 16 to prevent unsupported dimensions error.
         if (targetWidth % 16 != 0) {
             targetWidth += (16 - targetWidth % 16);
         }
@@ -46,6 +46,14 @@ public class WindowUtils {
         return new Pair<>(width, height);
     }
 
+    /**
+     * Returns the Recording video width and height which makes up resolution.
+     * takes height and width for the video
+     *
+     * @param scaleFactor scales down the resolution (height & width) of the video according
+     *                    to the value provided to this parameter should be between 0 and 1
+     *                    otherwise default is 0.8 means 80%.
+     **/
     public static Pair<Integer, Integer> getScaledDimensions(
             int maxWidth,
             int maxHeight,

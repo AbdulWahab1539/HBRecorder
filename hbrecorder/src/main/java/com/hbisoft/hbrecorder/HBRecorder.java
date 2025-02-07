@@ -225,14 +225,20 @@ public class HBRecorder implements MyListener {
         return hbRecorderCodecInfo.getMaxSupportedHeight();
     }
 
-    //Set Custom Dimensions (NOTE - YOUR DEVICE MIGHT NOT SUPPORT THE SIZE YOU PASS IT)
+    /**
+     * Set Custom Dimensions (NOTE - YOUR DEVICE MIGHT NOT SUPPORT THE SIZE YOU PASS IT)
+     * Might introduce black bars (Padding) around or sides of the video if dimensions are not
+     * according to device aspect ratio
+     **/
     public void setScreenDimensions(int heightInPX, int widthInPX) {
         mScreenHeight = heightInPX;
         mScreenWidth = widthInPX;
     }
 
-    // Sets the Resolution of the video while maintaining device aspect ratio,
-    // HbRecorder onError will be called if dimensions are not supported by your device.
+    /**
+     * Sets the Resolution of the video while maintaining device aspect ratio,
+     * HbRecorder onError will be called if dimensions are not supported by your device.
+     **/
     public void setResolution(int resolution) {
         Pair<Integer, Integer> customDimensions =
                 WindowUtils.getCustomDimensions(
